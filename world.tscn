@@ -13,7 +13,7 @@ script/script = ExtResource( 1 )
 
 [node name="root" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 96.8876, 322.783 )
+transform/pos = Vector2( -587.324, 348.012 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 

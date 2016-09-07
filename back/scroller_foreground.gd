@@ -5,7 +5,6 @@ extends ParallaxLayer
 # var a=2
 # var b="textvar"
 
-
 func _ready():
 	set_process(true)
 	

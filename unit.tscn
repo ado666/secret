@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=1]
+[gd_scene load_steps=16 format=1]
 
 [ext_resource path="res://unit/main.gd" type="Script" id=1]
 [ext_resource path="res://images/unit/body2.png" type="Texture" id=2]
@@ -82,6 +82,83 @@ tracks/7/interp = 1
 tracks/7/imported = false
 tracks/7/keys = { "times":FloatArray( 0, 0.2, 0.4 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ 0.0, -38.056, -2.38847 ] }
 
+[sub_resource type="Animation" id=3]
+
+resource/name = "move_test"
+length = 0.6
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("head:transform/rot")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.2, 0.4, 0.6 ), "transitions":FloatArray( 1, 1, 1, 1 ), "update":0, "values":[ 0.0, -1.20061, -0.0807246, -1.38196 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("head:transform/pos")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 0.2, 0.4, 0.6 ), "transitions":FloatArray( 1, 1, 1, 1 ), "update":0, "values":[ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ) ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("shoulder_right:transform/pos")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 0.2, 0.4, 0.6 ), "transitions":FloatArray( 1, 1, 1, 1 ), "update":0, "values":[ Vector2( 26.5928, 50.9695 ), Vector2( 26.5928, 50.9695 ), Vector2( 26.5928, 50.9695 ), Vector2( 26.5928, 50.9695 ) ] }
+tracks/3/type = "value"
+tracks/3/path = NodePath("shoulder_right:transform/rot")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = { "times":FloatArray( 0, 0.2, 0.4, 0.6 ), "transitions":FloatArray( 1, 1, 1, 1 ), "update":0, "values":[ 29.5395, 12.1574, 23.2525, 29.6127 ] }
+tracks/4/type = "value"
+tracks/4/path = NodePath("shoulder_left:transform/pos")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = { "times":FloatArray( 0, 0.2, 0.4, 0.6 ), "transitions":FloatArray( 1, 1, 1, 1 ), "update":0, "values":[ Vector2( -28.8089, 50.9695 ), Vector2( -28.8089, 50.9695 ), Vector2( -28.8089, 50.9695 ), Vector2( -28.8089, 50.9695 ) ] }
+tracks/5/type = "value"
+tracks/5/path = NodePath("shoulder_left:transform/rot")
+tracks/5/interp = 1
+tracks/5/imported = false
+tracks/5/keys = { "times":FloatArray( 0, 0.2, 0.4, 0.6 ), "transitions":FloatArray( 1, 1, 1, 1 ), "update":0, "values":[ -37.1302, -46.8484, -30.3182, -32.5266 ] }
+tracks/6/type = "value"
+tracks/6/path = NodePath("leg_left:transform/pos")
+tracks/6/interp = 1
+tracks/6/imported = false
+tracks/6/keys = { "times":FloatArray( 0, 0.2, 0.4, 0.6 ), "transitions":FloatArray( 1, 1, 1, 1 ), "update":0, "values":[ Vector2( -10.302, 134.791 ), Vector2( -10.302, 134.791 ), Vector2( -18.0583, 133.683 ), Vector2( -11.4101, 135.899 ) ] }
+tracks/7/type = "value"
+tracks/7/path = NodePath("leg_left:transform/rot")
+tracks/7/interp = 1
+tracks/7/imported = false
+tracks/7/keys = { "times":FloatArray( 0, 0.2, 0.4, 0.6 ), "transitions":FloatArray( 1, 1, 1, 1 ), "update":0, "values":[ -5.31617, -5.31617, -28.8658, 1.41004 ] }
+tracks/8/type = "value"
+tracks/8/path = NodePath("leg_left/foot_left:transform/pos")
+tracks/8/interp = 1
+tracks/8/imported = false
+tracks/8/keys = { "times":FloatArray( 0, 0.2, 0.4, 0.6 ), "transitions":FloatArray( 1, 1, 1, 1 ), "update":0, "values":[ Vector2( -5.04016, 45.2681 ), Vector2( -5.04016, 45.2681 ), Vector2( -14.1713, 40.1798 ), Vector2( -2.01382, 41.5874 ) ] }
+tracks/9/type = "value"
+tracks/9/path = NodePath("leg_left/foot_left:transform/rot")
+tracks/9/interp = 1
+tracks/9/imported = false
+tracks/9/keys = { "times":FloatArray( 0, 0.2, 0.4, 0.6 ), "transitions":FloatArray( 1, 1, 1, 1 ), "update":0, "values":[ -8.0907, -8.0907, -35.229, 0.561926 ] }
+tracks/10/type = "value"
+tracks/10/path = NodePath("leg_right:transform/pos")
+tracks/10/interp = 1
+tracks/10/imported = false
+tracks/10/keys = { "times":FloatArray( 0, 0.2, 0.4, 0.6 ), "transitions":FloatArray( 1, 1, 1, 1 ), "update":0, "values":[ Vector2( 16.5908, 134.821 ), Vector2( 26.5631, 125.956 ), Vector2( 15.4827, 131.497 ), Vector2( 15.4827, 131.497 ) ] }
+tracks/11/type = "value"
+tracks/11/path = NodePath("leg_right:transform/rot")
+tracks/11/interp = 1
+tracks/11/imported = false
+tracks/11/keys = { "times":FloatArray( 0, 0.2, 0.4, 0.6 ), "transitions":FloatArray( 1, 1, 1, 1 ), "update":0, "values":[ 0.432863, 46.2493, 3.06379, 3.06379 ] }
+tracks/12/type = "value"
+tracks/12/path = NodePath("leg_right/foot_right:transform/pos")
+tracks/12/interp = 1
+tracks/12/imported = false
+tracks/12/keys = { "times":FloatArray( 0, 0.2, 0.4, 0.6 ), "transitions":FloatArray( 1, 1, 1, 1 ), "update":0, "values":[ Vector2( -1.06057, 42.6637 ), Vector2( -11.2265, 41.6583 ), Vector2( -3.42216, 40.9664 ), Vector2( -3.42216, 40.9664 ) ] }
+tracks/13/type = "value"
+tracks/13/path = NodePath("leg_right/foot_right:transform/rot")
+tracks/13/interp = 1
+tracks/13/imported = false
+tracks/13/keys = { "times":FloatArray( 0, 0.2, 0.4, 0.6 ), "transitions":FloatArray( 1, 1, 1, 1 ), "update":0, "values":[ -0.774797, -30.7922, -4.69466, -4.69466 ] }
+
 [node name="root" type="Node2D"]
 
 transform/pos = Vector2( 3.2439, 0 )
@@ -94,18 +171,19 @@ texture = ExtResource( 2 )
 
 [node name="head" type="Sprite" parent="."]
 
+transform/rot = -0.692916
 texture = ExtResource( 3 )
 
 [node name="shoulder_right" type="Sprite" parent="."]
 
 transform/pos = Vector2( 26.5928, 50.9695 )
-transform/rot = 29.5395
+transform/rot = 26.2448
 texture = ExtResource( 4 )
 
 [node name="hand_right" type="Sprite" parent="shoulder_right"]
 
 transform/pos = Vector2( 19.9003, 35.5866 )
-transform/rot = 40.6815
+transform/rot = 40.3961
 texture = ExtResource( 5 )
 
 [node name="weapon" type="Sprite" parent="shoulder_right/hand_right"]
@@ -118,7 +196,7 @@ texture = ExtResource( 6 )
 [node name="shoulder_left" type="Sprite" parent="."]
 
 transform/pos = Vector2( -28.8089, 50.9695 )
-transform/rot = -37.1302
+transform/rot = -31.3572
 texture = ExtResource( 7 )
 
 [node name="hand_left" type="Sprite" parent="shoulder_left"]
@@ -129,27 +207,26 @@ texture = ExtResource( 8 )
 
 [node name="leg_left" type="Sprite" parent="."]
 
-transform/pos = Vector2( -10.302, 134.791 )
-transform/rot = -5.31617
+transform/pos = Vector2( -14.9305, 134.725 )
+transform/rot = -14.6219
 texture = ExtResource( 9 )
 
 [node name="foot_left" type="Sprite" parent="leg_left"]
 
-transform/pos = Vector2( -5.04016, 45.2681 )
-transform/rot = -8.0907
+transform/pos = Vector2( -8.45156, 40.842 )
+transform/rot = -18.3905
 texture = ExtResource( 10 )
 
 [node name="leg_right" type="Sprite" parent="."]
 
-editor/display_folded = true
-transform/pos = Vector2( 16.5908, 134.821 )
-transform/rot = 0.432863
+transform/pos = Vector2( 15.4827, 131.497 )
+transform/rot = 3.06379
 texture = ExtResource( 11 )
 
 [node name="foot_right" type="Sprite" parent="leg_right"]
 
-transform/pos = Vector2( -1.06057, 42.6637 )
-transform/rot = -0.774797
+transform/pos = Vector2( -3.42216, 40.9664 )
+transform/rot = -4.69466
 texture = ExtResource( 12 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -159,9 +236,10 @@ playback/default_blend_time = 0.0
 root/root = NodePath("..")
 anims/attack = SubResource( 1 )
 anims/move = SubResource( 2 )
+anims/move_test = SubResource( 3 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
-autoplay = "move"
+autoplay = "move_test"
 
 
