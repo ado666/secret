@@ -6,12 +6,15 @@ extends Node2D
 # var b="textvar"
 
 func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
 	set_process(true)
 	pass
 	
 func _process(delta):
-	self.set_pos(self.get_pos()+Vector2(1,0))
+	var pos = self.get_pos()
+	if (pos.x<500):
+		world._need_scroll = false
+		self.set_pos(self.get_pos()+Vector2(100*delta,0))
+	else:
+		world._need_scroll = true
 
 

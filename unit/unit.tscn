@@ -104,8 +104,8 @@ texture = ExtResource( 4 )
 
 [node name="hand_right" type="Sprite" parent="shoulder_right"]
 
-transform/pos = Vector2( 19.9003, 35.5866 )
-transform/rot = 40.6815
+transform/pos = Vector2( 17.2014, 11.1327 )
+transform/rot = 109.071
 texture = ExtResource( 5 )
 
 [node name="weapon" type="Sprite" parent="shoulder_right/hand_right"]
@@ -117,6 +117,7 @@ texture = ExtResource( 6 )
 
 [node name="shoulder_left" type="Sprite" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( -28.8089, 50.9695 )
 transform/rot = -37.1302
 texture = ExtResource( 7 )
@@ -129,6 +130,7 @@ texture = ExtResource( 8 )
 
 [node name="leg_left" type="Sprite" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( -10.302, 134.791 )
 transform/rot = -5.31617
 texture = ExtResource( 9 )

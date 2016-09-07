@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=1]
 
-[ext_resource path="res://world/world.gd" type="Script" id=1]
+[ext_resource path="res://world.gd" type="Script" id=1]
 [ext_resource path="res://unit.tscn" type="PackedScene" id=2]
 [ext_resource path="res://back/scroller.gd" type="Script" id=3]
 [ext_resource path="res://images/back/1024x512.png" type="Texture" id=4]
