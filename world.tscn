@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://world/world.gd" type="Script" id=1]
-[ext_resource path="res://unit.tscn" type="PackedScene" id=2]
+[ext_resource path="res://unit/sprite_unit.tscn" type="PackedScene" id=2]
 [ext_resource path="res://back/scroller.gd" type="Script" id=3]
 [ext_resource path="res://images/back/1024x512.png" type="Texture" id=4]
 [ext_resource path="res://back/scroller_foreground.gd" type="Script" id=5]
@@ -10,13 +10,17 @@
 [node name="world" type="Node2D"]
 
 script/script = ExtResource( 1 )
+enemy_spawn_delay = 10
 
-[node name="root" parent="." instance=ExtResource( 2 )]
+[node name="units" type="Node2D" parent="."]
 
-transform/pos = Vector2( -587.324, 348.012 )
+[node name="player" parent="units" instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 259.139, 448.923 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
+editor/display_folded = true
 layer = -1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -51,6 +55,7 @@ stretch_mode = 0
 
 [node name="ParallaxBackground 2" type="ParallaxBackground" parent="."]
 
+editor/display_folded = true
 layer = 2
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -71,7 +76,7 @@ script/script = ExtResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground 2/ParallaxLayer"]
 
-transform/pos = Vector2( 710.811, 284.009 )
+transform/pos = Vector2( 525.803, 279.804 )
 texture = ExtResource( 6 )
 
 

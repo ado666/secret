@@ -1,0 +1,25 @@
+[gd_scene format=1]
+
+[node name="Label" type="Label"]
+
+visibility/opacity = 0.0249301
+rect/scale = Vector2( 1.5, 1.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 94.0
+margin/top = -223.0
+margin/right = 173.0
+margin/bottom = -192.0
+custom_colors/font_color = Color( 0.824219, 0.0676117, 0.0676117, 1 )
+custom_colors/font_color_shadow = Color( 0.269531, 0.02948, 0.02948, 1 )
+custom_constants/shadow_offset_x = 0
+text = "20"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+
