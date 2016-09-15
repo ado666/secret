@@ -7,8 +7,11 @@ extends Node2D
 var _action = "move"
 var hp = 100
 var max_hp = 100
-var damage = 10
+var damage = 5
 var target = null
+
+var is_enemy = true
+var slot = 0
 
 func _ready():
 	set_process(true)
@@ -23,19 +26,27 @@ func _process(delta):
 	set_pos(pos+Vector2(-100*delta, 0))
 	
 func _on_collider_area_enter( area ):
-	#pass
-	#get_node("AnimationPlayer").play("attack")
+	target = area.get_parent()
+	
+	if target.is_enemy:
+		return
+		
 	_action = "attack"
 
 func death():
 	_action = "death"
 
 func _on_Area2D_area_enter( area ):
+	target = area.get_parent()
+	
+	if target.is_enemy:
+		return
+	
 	get_node("move").hide()
 	get_node("death").hide()
 	get_node("attack").show()
 	
-	target = area.get_parent()
+	
 	get_node("animator").play("attack")
 	_action = "attack"
 
@@ -52,9 +63,7 @@ func _on_animator_finished():
 			if target.hp < 0:
 				target.hp = 0
 			if target.hp <= 0:
-				#target.death()
 				_action = "move"
-				#get_node("animator").play("run")
 				target = null
 				return
 	

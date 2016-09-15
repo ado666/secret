@@ -10,6 +10,8 @@ var hp = 120
 var max_hp = 120
 var damage = 30
 
+var is_enemy = false
+
 var target = null
 
 func _ready():
@@ -41,17 +43,32 @@ func _on_AnimationPlayer_finished():
 			damage = rand_range(damage-5, damage+5)
 			target.hp -= damage
 			var energy = ui.get_node("energy")
-			energy.set_value(energy.get_value()+damage/4)
+			energy.set_value(energy.get_value()+damage/2)
 			target.get_node("Label").set_text(str(round(damage)))
 			target.get_node("textanimator").play("textanimation")
 			if target.hp < 0:
 				target.hp = 0
 			if target.hp <= 0:
 				target.death()
-				_action = "move"
-				get_node("animator").play("run")
+				
+				world.slots_units[target.slot] = null
 				target = null
-				return
+				
+				if world.slots_units["21"]:
+					target = world.slots_units["21"]
+				elif world.slots_units["22"]:
+					target = world.slots_units["22"]
+				elif world.slots_units["23"]:
+					target = world.slots_units["23"]
+				elif world.slots_units["24"]:
+					target = world.slots_units["24"]
+				elif world.slots_units["25"]:
+					target = world.slots_units["25"]
+				else:
+					_action = "move"
+					get_node("animator").play("run")
+				
+				
 		else:
 			_action = "move"
 			get_node("animator").play("run")
