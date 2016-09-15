@@ -9,6 +9,7 @@ onready var units_layer = get_node("units")
 
 var scene = load("res://jugg/jugg.tscn")
 var unit = load("res://unit/sprite_unit.tscn")
+var mage = load("res://mage/mage.tscn")
 
 var clutch = false
 
@@ -16,6 +17,8 @@ var slots_position = {
 	"11": Vector2(0, -50),
 	"12": Vector2(25, 0),
 	"13": Vector2(0, 50),
+	"14": Vector2(-100, -15),
+	"15": Vector2(-100, 35),
 	
 	"21": Vector2(0, -50),
 	"22": Vector2(-20, 0),
@@ -39,9 +42,11 @@ var slots_units = {
 
 func _ready():
 	set_process(true)
-	spawn_hero()
-	spawn_hero()
-	spawn_hero()
+	spawn_hero("warrior")
+	spawn_hero("warrior")
+	spawn_hero("warrior")
+	spawn_hero("mage")
+	spawn_hero("priest")
 
 func _process(delta):
 	var now = OS.get_unix_time()
@@ -83,10 +88,20 @@ func spawn_enemy():
 	
 	_last_spawn = now
 
-func spawn_hero():
+func spawn_hero(type):
 	var now = OS.get_unix_time()
 	
-	var hero = unit.instance()
+	var hero = null
+	if type == "warrior":
+		hero = unit.instance()
+	if type == "mage":
+		hero = mage.instance()
+		hero.set_scale(Vector2(2,2))
+		hero.get_node("body").set_modulate(Color("ED3B18"))
+	if type == "priest":
+		hero = mage.instance()
+		hero.set_scale(Vector2(2,2))
+		hero.get_node("body").set_modulate(Color("31ED18"))
 	
 	if not units_layer:
 		return
