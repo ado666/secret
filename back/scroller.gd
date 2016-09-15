@@ -9,7 +9,7 @@ func _ready():
 	set_process(true)
 	
 func _process(delta):
-	if not world._need_scroll:
+	if not world._need_scroll or world.clutch:
 		return
 	
 	var pos = self.get_pos()

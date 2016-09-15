@@ -12,10 +12,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 490.0
-margin/top = 543.0
-margin/right = 990.0
-margin/bottom = 593.0
+margin/left = 233.0
+margin/top = 10.0
+margin/right = 733.0
+margin/bottom = 60.0
 range/min = 0.0
 range/max = 100.0
 range/step = 1.0
@@ -27,6 +27,7 @@ percent/visible = false
 
 [node name="Button" type="Button" parent="."]
 
+visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2

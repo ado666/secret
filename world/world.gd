@@ -8,10 +8,13 @@ export var enemy_spawn_delay = 20
 onready var units_layer = get_node("units")
 
 var scene = load("res://jugg/jugg.tscn")
+var unit = load("res://unit/sprite_unit.tscn")
+
+var clutch = false
 
 var slots_position = {
 	"11": Vector2(0, -50),
-	"12": Vector2(-20, 0),
+	"12": Vector2(25, 0),
 	"13": Vector2(0, 50),
 	
 	"21": Vector2(0, -50),
@@ -36,7 +39,9 @@ var slots_units = {
 
 func _ready():
 	set_process(true)
-	print(111)
+	spawn_hero()
+	spawn_hero()
+	spawn_hero()
 
 func _process(delta):
 	var now = OS.get_unix_time()
@@ -78,4 +83,29 @@ func spawn_enemy():
 	
 	_last_spawn = now
 
+func spawn_hero():
+	var now = OS.get_unix_time()
+	
+	var hero = unit.instance()
+	
+	if not units_layer:
+		return
+	
+	var slot = null
+	if not slots_units["15"]:
+		slot = "15"
+	if not slots_units["14"]:
+		slot = "14"
+	if not slots_units["13"]:
+		slot = "13"
+	if not slots_units["12"]:
+		slot = "12"
+	if not slots_units["11"]:
+		slot = "11"
+		
+	hero.set_pos(Vector2(260, 460) + slots_position[slot])
+	
+	hero.slot = slot
+	slots_units[slot] = hero
+	units_layer.add_child(hero)
 
