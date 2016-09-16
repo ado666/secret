@@ -10,6 +10,7 @@ onready var units_layer = get_node("units")
 var scene = load("res://jugg/jugg.tscn")
 var unit = load("res://unit/sprite_unit.tscn")
 var mage = load("res://mage/mage.tscn")
+var ability_button = load("res://ui/ability_button.tscn")
 
 var clutch = false
 
@@ -17,8 +18,8 @@ var slots_position = {
 	"11": Vector2(0, -50),
 	"12": Vector2(25, 0),
 	"13": Vector2(0, 50),
-	"14": Vector2(-100, -15),
-	"15": Vector2(-100, 35),
+	"14": Vector2(-150, -15),
+	"15": Vector2(-150, 35),
 	
 	"21": Vector2(0, -50),
 	"22": Vector2(-20, 0),
@@ -123,4 +124,45 @@ func spawn_hero(type):
 	hero.slot = slot
 	slots_units[slot] = hero
 	units_layer.add_child(hero)
+	
+	# button
+	create_hero_button(hero)
 
+func create_hero_button(hero):
+	var button = ability_button.instance()
+	button.set_text(hero.ability)
+	button.hero = hero
+	ui.ability_buttons.add_child(button)
+	button.connect("cast_spell",self,"_on_spell_click",[hero])
+
+func _on_spell_click (who, hero):
+	if who.energy < 20:
+		return
+		
+	who.energy -= 20
+	who.get_node("player").play(who.ability)
+	if slots_units["15"]:
+		if slots_units["15"].hp + 50 > slots_units["15"].max_hp:
+			slots_units["15"].hp = slots_units["15"].max_hp
+		else:
+			slots_units["15"].hp += 50
+	if slots_units["14"]:
+		if slots_units["14"].hp + 50 > slots_units["14"].max_hp:
+			slots_units["14"].hp = slots_units["14"].max_hp
+		else:
+			slots_units["14"].hp += 50
+	if slots_units["13"]:
+		if slots_units["13"].hp + 50 > slots_units["13"].max_hp:
+			slots_units["13"].hp = slots_units["13"].max_hp
+		else:
+			slots_units["13"].hp += 50
+	if slots_units["12"]:
+		if slots_units["12"].hp + 50 > slots_units["12"].max_hp:
+			slots_units["12"].hp = slots_units["12"].max_hp
+		else:
+			slots_units["12"].hp += 50
+	if slots_units["11"]:
+		if slots_units["11"].hp + 50 > slots_units["11"].max_hp:
+			slots_units["11"].hp = slots_units["11"].max_hp
+		else:
+			slots_units["11"].hp += 50

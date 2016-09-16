@@ -5,10 +5,13 @@ extends Node2D
 # var a=2
 # var b="textvar"
 
+var ability = "slam"
 var _action = "move"
 var hp = 120
 var max_hp = 120
 var damage = 30
+var energy = 0
+var energy_max = 100
 
 var is_enemy = false
 var slot = 0
@@ -72,8 +75,9 @@ func _process(delta):
 			return
 		target.hp -= damage
 		
-		var energy = ui.get_node("energy")
-		energy.set_value(energy.get_value()+damage/2)
+		energy += damage/2
+		if energy > energy_max:
+			energy = energy_max
 		
 		target.get_node("Label").set_text(str(round(damage)))
 		target.get_node("textanimator").play("textanimation")

@@ -1,0 +1,11 @@
+[gd_resource type="SampleLibrary" load_steps=3 format=1]
+
+[ext_resource path="res://sound/Chen_ability_handgod_01.wav" type="Sample" id=1]
+[ext_resource path="res://sound/Warl_ability_reign_06.wav" type="Sample" id=2]
+
+[resource]
+
+samples/all_heal = { "db":0.0, "pitch":1.0, "sample":ExtResource( 1 ) }
+samples/meteor = { "db":0.0, "pitch":1.0, "sample":ExtResource( 2 ) }
+samples/slam = { "db":0.0, "pitch":1.0, "sample":ExtResource( 2 ) }
+
