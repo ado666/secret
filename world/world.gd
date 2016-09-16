@@ -11,6 +11,8 @@ var scene = load("res://jugg/jugg.tscn")
 var unit = load("res://unit/sprite_unit.tscn")
 var mage = load("res://mage/mage.tscn")
 var ability_button = load("res://ui/ability_button.tscn")
+var rain_scene = load("res://mage/meteor.tscn")
+var rain = null
 
 var clutch = false
 
@@ -48,6 +50,8 @@ func _ready():
 	spawn_hero("warrior")
 	spawn_hero("mage")
 	spawn_hero("priest")
+	rain = rain_scene.instance()
+	add_child(rain)
 
 func _process(delta):
 	var now = OS.get_unix_time()
@@ -98,6 +102,7 @@ func spawn_hero(type):
 	if type == "mage":
 		hero = mage.instance()
 		hero.set_scale(Vector2(2,2))
+		hero.ability = "meteor"
 		hero.get_node("body").set_modulate(Color("ED3B18"))
 	if type == "priest":
 		hero = mage.instance()
@@ -141,28 +146,58 @@ func _on_spell_click (who, hero):
 		
 	who.energy -= 20
 	who.get_node("player").play(who.ability)
-	if slots_units["15"]:
-		if slots_units["15"].hp + 50 > slots_units["15"].max_hp:
-			slots_units["15"].hp = slots_units["15"].max_hp
-		else:
-			slots_units["15"].hp += 50
-	if slots_units["14"]:
-		if slots_units["14"].hp + 50 > slots_units["14"].max_hp:
-			slots_units["14"].hp = slots_units["14"].max_hp
-		else:
-			slots_units["14"].hp += 50
-	if slots_units["13"]:
-		if slots_units["13"].hp + 50 > slots_units["13"].max_hp:
-			slots_units["13"].hp = slots_units["13"].max_hp
-		else:
-			slots_units["13"].hp += 50
-	if slots_units["12"]:
-		if slots_units["12"].hp + 50 > slots_units["12"].max_hp:
-			slots_units["12"].hp = slots_units["12"].max_hp
-		else:
-			slots_units["12"].hp += 50
-	if slots_units["11"]:
-		if slots_units["11"].hp + 50 > slots_units["11"].max_hp:
-			slots_units["11"].hp = slots_units["11"].max_hp
-		else:
-			slots_units["11"].hp += 50
+	
+	if who.ability == "meteor":
+		rain.start()
+		if slots_units["25"]:
+			slots_units["25"].hp -= 50
+			if slots_units["25"].hp <= 0:
+				slots_units["25"].death()
+		if slots_units["24"]:
+			slots_units["24"].hp -= 50
+			if slots_units["24"].hp <= 0:
+				slots_units["24"].death()
+		if slots_units["23"]:
+			slots_units["23"].hp -= 50
+			if slots_units["23"].hp <= 0:
+				slots_units["23"].death()
+		if slots_units["22"]:
+			slots_units["22"].hp -= 50
+			if slots_units["22"].hp <= 0:
+				slots_units["22"].death()
+		if slots_units["21"]:
+			slots_units["21"].hp -= 50
+			if slots_units["21"].hp <= 0:
+				slots_units["21"].death()
+	
+	if who.ability == "all_heal":
+		if slots_units["15"]:
+			if slots_units["15"].hp + 50 > slots_units["15"].max_hp:
+				slots_units["15"].hp = slots_units["15"].max_hp
+			else:
+				slots_units["15"].hp += 50
+			slots_units["15"].get_node("healanimator").play("heal")
+		if slots_units["14"]:
+			if slots_units["14"].hp + 50 > slots_units["14"].max_hp:
+				slots_units["14"].hp = slots_units["14"].max_hp
+			else:
+				slots_units["14"].hp += 50
+			slots_units["14"].get_node("healanimator").play("heal")
+		if slots_units["13"]:
+			if slots_units["13"].hp + 50 > slots_units["13"].max_hp:
+				slots_units["13"].hp = slots_units["13"].max_hp
+			else:
+				slots_units["13"].hp += 50
+			slots_units["13"].get_node("healanimator").play("heal")
+		if slots_units["12"]:
+			if slots_units["12"].hp + 50 > slots_units["12"].max_hp:
+				slots_units["12"].hp = slots_units["12"].max_hp
+			else:
+				slots_units["12"].hp += 50
+			slots_units["12"].get_node("healanimator").play("heal")
+		if slots_units["11"]:
+			if slots_units["11"].hp + 50 > slots_units["11"].max_hp:
+				slots_units["11"].hp = slots_units["11"].max_hp
+			else:
+				slots_units["11"].hp += 50
+			slots_units["11"].get_node("healanimator").play("heal")
