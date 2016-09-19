@@ -1,10 +1,6 @@
 
 extends Node2D
 
-# member variables here, example:
-# var a=2
-# var b="textvar"
-
 var ability = "all_heal"
 var _action = "move"
 var hp = 120

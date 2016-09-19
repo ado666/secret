@@ -98,9 +98,7 @@ func _process(delta):
 func _on_Area2D_area_enter( area ):
 	if not area.get_parent().is_enemy or area.get_parent()._action != "attack":
 		return
-	#target = area.get_parent()
-	#_action = "attack"
-	#get_node("animator").play("attack")
+		
 	world.clutch = true
 		
 func _on_textanimator_finished():
