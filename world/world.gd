@@ -15,6 +15,7 @@ var rain_scene = load("res://mage/meteor.tscn")
 var rain = null
 
 var clutch = false
+var wave = 0
 
 var slots_position = {
 	"11": Vector2(0, -50),
@@ -63,6 +64,7 @@ func _process(delta):
 		spawn_enemy()
 		spawn_enemy()
 		spawn_enemy()
+		wave += 1
 
 func spawn_enemy():
 	var now = OS.get_unix_time()
@@ -88,6 +90,8 @@ func spawn_enemy():
 	enemy.set_scale(Vector2(1.5,1.5))
 	
 	enemy.slot = slot
+	enemy.hp = 100 + wave*50
+	enemy.max_hp = 100 + wave*50
 	slots_units[slot] = enemy
 	units_layer.add_child(enemy)
 	

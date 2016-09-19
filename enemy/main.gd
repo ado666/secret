@@ -37,12 +37,16 @@ func _get_target():
 func _process(delta):
 	var animator = get_node("animator")
 	
+	if not world.clutch or (not world.clutch and _death_in_progress):
+		var pos = get_pos()
+		var s = world.slots_position[slot]
+		set_pos(pos+Vector2(-100*delta, 0))
+	
 	if animator.is_playing() and animator.get_current_animation() != "run":
 		return
 	
 	if world.clutch and animator:
 		var target = _get_target()
-		
 		animator.play("attack")
 		
 		damage = rand_range(damage-2, damage+2)
@@ -55,9 +59,6 @@ func _process(delta):
 			target.hp = 0
 			target.death()
 	else:
-		var pos = get_pos()
-		var s = world.slots_position[slot]
-		set_pos(pos+Vector2(-100*delta, 0))
 		if not animator.is_playing() and animator.get_current_animation() != "run":
 			animator.play("run")
 	
@@ -89,10 +90,12 @@ func _on_Area2D_area_enter( area ):
 	
 	var target = area.get_parent()
 	
+	if get_node("animator").get_current_animation() == "death":
+		return
+	
 	get_node("move").hide()
 	get_node("death").hide()
 	get_node("attack").show()
-	
 	
 	get_node("animator").play("attack")
 	_action = "attack"
@@ -102,28 +105,3 @@ func _on_animator_finished():
 	if get_node("animator").get_current_animation() == "death":
 		queue_free()
 	var target = null
-	return
-	if _action == "attack" and target:
-		if target.hp > 0:
-			get_node("animator").play("attack")
-			damage = rand_range(damage-2, damage+2)
-			target.hp -= damage
-			target.get_node("Label").set_text(str(round(damage)))
-			target.get_node("textanimator").play("textanimation")
-			if target.hp < 0:
-				target.hp = 0
-			if target.hp <= 0:
-				_action = "move"
-				target = null
-				return
-	
-	if _action == "death_end":
-		queue_free()
-		return
-	
-	if _action == "death":
-		get_node("move").hide()
-		get_node("death").show()
-		get_node("attack").hide()
-		get_node("animator").play("death")
-		_action = "death_end"
