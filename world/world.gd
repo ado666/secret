@@ -6,6 +6,7 @@ var _last_spawn = OS.get_unix_time()
 
 export var enemy_spawn_delay = 20
 onready var units_layer = get_node("units")
+onready var ui = get_node("ui")
 
 var scene = load("res://jugg/jugg.tscn")
 var unit = load("res://unit/sprite_unit.tscn")
@@ -45,6 +46,9 @@ var slots_units = {
 
 
 func _ready():
+	pass
+	
+func start():
 	set_process(true)
 	spawn_hero("warrior")
 	spawn_hero("warrior")
@@ -53,6 +57,9 @@ func _ready():
 	spawn_hero("priest")
 	rain = rain_scene.instance()
 	add_child(rain)
+	
+func stop():
+	set_process(false)
 
 func _process(delta):
 	var now = OS.get_unix_time()
@@ -145,10 +152,13 @@ func create_hero_button(hero):
 	button.connect("cast_spell",self,"_on_spell_click",[hero])
 
 func _on_spell_click (who, hero):
-	if who.energy < 20:
+	if who.energy < 50:
 		return
 		
-	who.energy -= 20
+	if who.ability == "slam":
+		return
+		
+	who.energy -= 50
 	who.get_node("player").play(who.ability)
 	
 	if who.ability == "meteor":

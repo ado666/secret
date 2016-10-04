@@ -1,11 +1,12 @@
-[gd_scene load_steps=11 format=1]
+[gd_scene load_steps=12 format=1]
 
 [ext_resource path="res://mage/mage.gd" type="Script" id=1]
 [ext_resource path="res://images/mage/wizard.png" type="Texture" id=2]
 [ext_resource path="res://sound/sample1.tres" type="SampleLibrary" id=3]
 [ext_resource path="res://mage/textanimator.tres" type="Animation" id=4]
 [ext_resource path="res://mage/health.gd" type="Script" id=5]
-[ext_resource path="res://mage/healanimator.tres" type="Animation" id=6]
+[ext_resource path="res://images/heal_002.png" type="Texture" id=6]
+[ext_resource path="res://mage/healanimator.tres" type="Animation" id=7]
 
 [sub_resource type="Animation" id=1]
 
@@ -141,12 +142,17 @@ script/script = ExtResource( 5 )
 
 [node name="heal" type="Sprite" parent="."]
 
+texture = ExtResource( 6 )
+vframes = 5
+hframes = 5
+frame = 24
+
 [node name="healanimator" type="AnimationPlayer" parent="."]
 
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/healanimator = ExtResource( 6 )
+anims/heal = ExtResource( 7 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]

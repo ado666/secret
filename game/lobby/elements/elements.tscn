@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://game/lobby/elements/portal/portal.tscn" type="PackedScene" id=1]
+
+[node name="elements" type="Node2D"]
+
+transform/pos = Vector2( 40.5349, 36.3045 )
+transform/scale = Vector2( 2.26672, 2.13452 )
+
+[node name="portal" parent="." instance=ExtResource( 1 )]
+
+transform/pos = Vector2( 159.29, 30.2649 )
+transform/scale = Vector2( 1.50389, 1.93495 )
+
+

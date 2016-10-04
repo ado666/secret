@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://game/lobby/back/back.jpg" type="Texture" id=1]
+
+[node name="back" type="Node2D"]
+
+[node name="back_1" type="Sprite" parent="."]
+
+transform/pos = Vector2( 542.253, 304.658 )
+transform/scale = Vector2( 0.57, 0.57 )
+texture = ExtResource( 1 )
+
+

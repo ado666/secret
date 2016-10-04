@@ -167,8 +167,6 @@ default/reverb_room = 2
 default/reverb_send = 0.0
 default/chorus_send = 0.0
 
-[connection signal="finished" from="animator" to="." method="_on_AnimationPlayer_finished"]
-
 [connection signal="area_enter" from="Area2D" to="." method="_on_Area2D_area_enter"]
 
 

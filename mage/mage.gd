@@ -7,7 +7,7 @@ var hp = 120
 var max_hp = 120
 var damage = 30
 var energy = 0
-var energy_max = 100
+var energy_max = 50
 
 var is_enemy = false
 var slot = 0
@@ -115,7 +115,7 @@ func _on_AnimationPlayer_finished():
 			get_node("animator").play("attack")
 			damage = rand_range(damage-5, damage+5)
 			target.hp -= damage
-			var energy = ui.get_node("energy")
+			var energy = world.ui.get_node("energy")
 			energy.set_value(energy.get_value()+damage/2)
 			target.get_node("Label").set_text(str(round(damage)))
 			target.get_node("textanimator").play("textanimation")

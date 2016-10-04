@@ -8,3 +8,6 @@ func _ready():
 	
 func _process(delta):
 	update()
+
+func _on_Button_pressed():
+	game.select_scene("lobby")

@@ -7,7 +7,7 @@ var hp = 120
 var max_hp = 120
 var damage = 30
 var energy = 0
-var energy_max = 100
+var energy_max = 50
 
 var is_enemy = false
 var slot = 0
@@ -91,9 +91,6 @@ func _process(delta):
 	if _action == "attack":
 		world._need_scroll = false
 		return
-	
-	
-
 
 func _on_Area2D_area_enter( area ):
 	if not area.get_parent().is_enemy or area.get_parent()._action != "attack":

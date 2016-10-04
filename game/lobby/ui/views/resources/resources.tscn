@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://game/lobby/ui/views/resources/gold.tscn" type="PackedScene" id=1]
+
+[node name="resources" type="Node2D"]
+
+[node name="resource" parent="." instance=ExtResource( 1 )]
+
+
