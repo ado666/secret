@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://game/map/ui/ui.gd" type="Script" id=1]
+
+[node name="ui" type="Node2D"]
+
+script/script = ExtResource( 1 )
+
+[node name="back_to_lobby" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 111.0
+margin/bottom = 44.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Back"
+flat = false
+
+[connection signal="pressed" from="back_to_lobby" to="." method="_on_back_to_lobby_pressed"]
+
+
