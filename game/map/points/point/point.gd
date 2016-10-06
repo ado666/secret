@@ -24,6 +24,7 @@ func _on_Control_input_event( ev ):
 		if ev.button_index == BUTTON_LEFT and ev.pressed:
 			if global.map_points[idx].status < 0:
 				return
-			#set_status(1)
-			#global.current_scene.points.update_progress()
-			utils.open_window("before_battle", {"point_idx": idx})
+			if global.map_points[idx].status == 0:
+				utils.open_window("before_battle", {"point_idx": idx})
+			else:
+				utils.open_window("checked_point", {"point_idx": idx})

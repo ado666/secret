@@ -4,6 +4,7 @@ var _windows = {}
 
 func _ready():
 	_windows["before_battle"] = before_battle
+	_windows["checked_point"] = checked_point
 
 var map_color_close = Color("756A6A") #-1
 var map_color_open = Color("CC2626") #0
@@ -28,6 +29,7 @@ func status_to_map_point_color(status):
 	return current_color
 	
 onready var before_battle = preload("res://game/lib/ui/window/before_battle/before_battle.tscn")
+onready var checked_point = preload("res://game/lib/ui/window/checked_point/checked_point.tscn")
 
 
 

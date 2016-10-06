@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=1]
+[gd_scene load_steps=3 format=1]
 
 [ext_resource path="res://game/lib/ui/window/window.tscn" type="PackedScene" id=1]
+[ext_resource path="res://game/lib/ui/window/before_battle/before_battle.gd" type="Script" id=2]
 
 [node name="before_battle" instance=ExtResource( 1 )]
+
+script/script = ExtResource( 2 )
 
 [node name="text" type="Label" parent="content"]
 
