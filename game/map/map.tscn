@@ -19,4 +19,6 @@ texture = ExtResource( 2 )
 
 [node name="ui" parent="." instance=ExtResource( 4 )]
 
+[node name="windows_cnt" type="Node2D" parent="ui"]
+
 

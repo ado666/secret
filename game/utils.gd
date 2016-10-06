@@ -1,7 +1,9 @@
 extends Node2D
 
+var _windows = {}
+
 func _ready():
-	print ("init utils")
+	_windows["before_battle"] = before_battle
 
 var map_color_close = Color("756A6A") #-1
 var map_color_open = Color("CC2626") #0
@@ -24,3 +26,19 @@ func status_to_map_point_color(status):
 		current_color = map_color_complete_3
 	
 	return current_color
+	
+onready var before_battle = preload("res://game/lib/ui/window/before_battle/before_battle.tscn")
+
+
+
+func open_window(window, data):
+	var w = _windows[window]
+	w = w.instance()
+	
+	w.data = data
+	w.set_pos(Vector2(self.get_parent().get_rect().size.width/2,self.get_parent().get_rect().size.height/2))
+	
+	global.current_scene.windows.add_child(w)
+
+func close_window(window):
+	global.current_scene.windows.remove_child(window)

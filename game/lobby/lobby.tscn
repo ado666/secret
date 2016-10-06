@@ -13,6 +13,8 @@ script/script = ExtResource( 1 )
 
 [node name="ui" parent="." instance=ExtResource( 3 )]
 
+[node name="windows_cnt" type="Node2D" parent="ui"]
+
 [node name="elements" parent="." instance=ExtResource( 4 )]
 
 
