@@ -2,13 +2,6 @@ extends Node2D
 
 onready var point_scene = preload("res://game/map/points/point/point.tscn")
 
-var color_close = Color("756A6A") #-1
-var color_open = Color("CC2626") #0
-
-var color_complete_1 = Color("18DF40") #1
-var color_complete_2 = Color("18DF40") #2
-var color_complete_3 = Color("18DF40") #3
-
 func _ready():
 	init_points()
 
@@ -39,6 +32,7 @@ func update_progress():
 	
 	for p in get_children():
 		p.update()
+		
 	update()
 	
 func _draw():
@@ -51,17 +45,7 @@ func _draw():
 		var p2 = points[idx]
 		
 		var status = p2.status
-		var current_color = null
-		if status == -1:
-			current_color = color_close
-		elif status == 0:
-			current_color = color_open
-		elif status == 1:
-			current_color = color_complete_1
-		elif status == 2:
-			current_color = color_complete_2
-		elif status == 3:
-			current_color = color_complete_3
+		var current_color = utils.status_to_map_point_color(status)
 		
 		draw_line(p1.position, p2.position, current_color, 3.0)
 

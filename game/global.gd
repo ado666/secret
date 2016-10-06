@@ -6,6 +6,10 @@ var lobby_scene = "res://game/lobby/lobby.tscn"
 var battle_scene = "res://game/battle/battle.tscn"
 var map_scene = "res://game/map/map.tscn"
 
+var lobby = null
+var battle = null
+var map = null
+
 var map_points = [
 	{"id": 1, "position": Vector2(145, 135), "status": 1},
 	{"id": 2, "position": Vector2(190, 350), "status": -1},
